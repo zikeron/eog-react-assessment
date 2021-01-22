@@ -4,10 +4,13 @@ import { Provider } from 'react-redux';
 import { ToastContainer } from 'react-toastify';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
+import { ApolloProvider } from '@apollo/client';
 import 'react-toastify/dist/ReactToastify.css';
 import Header from './components/Header';
 import Wrapper from './components/Wrapper';
-import NowWhat from './components/NowWhat';
+// import NowWhat from './components/NowWhat';
+import { Layout } from './container/Layout';
+import { client } from './lib/apollo-client';
 
 const store = createStore();
 const theme = createMuiTheme({
@@ -28,11 +31,13 @@ const App = () => (
   <MuiThemeProvider theme={theme}>
     <CssBaseline />
     <Provider store={store}>
-      <Wrapper>
-        <Header />
-        <NowWhat />
-        <ToastContainer />
-      </Wrapper>
+      <ApolloProvider client={client()}>
+        <Wrapper>
+          <Header />
+          <Layout />
+          <ToastContainer />
+        </Wrapper>
+      </ApolloProvider>
     </Provider>
   </MuiThemeProvider>
 );
