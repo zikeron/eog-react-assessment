@@ -5,6 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Card, CardContent } from '@material-ui/core';
 import { SearchBar } from '../components/SearchBar';
 import { Chart } from '../components/Chart';
+import { Sticker } from '../components/Sticker'
 
 const getMetrics = async () => {
   let result = null;
@@ -93,6 +94,7 @@ export const Layout = () => {
       <Card className={classes.card}>
         <CardContent style={{ padding: 0 }}>
           <SearchBar metrics={metrics} selection={selection} setSelection={setSelection} />
+          { selection.length > 0 ? selection.map((element, index) => <Sticker key={index} lastSelected={selection[index]}/>) : null }
           <Chart data={multipleMeasures} selection={selection} />
         </CardContent>
       </Card>

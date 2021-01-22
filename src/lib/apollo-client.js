@@ -15,7 +15,6 @@ const httpLink = new HttpLink({
   uri: BASE_URL,
 });
 
-console.log('httpLink', httpLink);
 const link = split(
   ({ query }) => {
     const definition = getMainDefinition(query);
@@ -30,7 +29,7 @@ const link = split(
 
 export const client = () => {
   return new ApolloClient({
-    link: httpLink,
+    link: link,
     cache: new InMemoryCache(),
   });
 };

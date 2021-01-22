@@ -16,7 +16,7 @@ const useStyles = makeStyles({
 
 export const SearchBar = ({ metrics, selection, setSelection }) => {
   const classes = useStyles();
-  console.log('selection SearchBar', selection);
+
   return (
     <CardContent className={classes.searchBlue}>
       <Grid container spacing={4} justify="space-between">
