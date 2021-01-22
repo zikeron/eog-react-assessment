@@ -12,6 +12,7 @@ import Wrapper from './components/Wrapper';
 import { Layout } from './container/Layout';
 import { client } from './lib/apollo-client';
 
+
 const store = createStore();
 const theme = createMuiTheme({
   palette: {
